@@ -54,7 +54,7 @@ func ReadTar(tarfile io.ReadCloser) ([]string){
             name := tarHeader.Name
             rep := regexp.MustCompile(`([A-Fa-f0-9]{64})\.json`)
             if rep.MatchString(name) {
-                    layers = readHashJson(tarReader)
+                    layers = ReadHashJson(tarReader)
                     break
             }
     }
