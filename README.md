@@ -1,7 +1,7 @@
 v0.0.1
 
 
-usage: img2df [image name] or [image:tag]
+usage: img2df [image name] or [image:tag]<br>
 example: img2df debian
 ```
 $ sudo ./img2df python:alpine
