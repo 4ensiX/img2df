@@ -1,4 +1,4 @@
-package util
+package img2df
 
 import (
     "fmt"
