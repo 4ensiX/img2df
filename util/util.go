@@ -35,32 +35,6 @@ func SaveImage(id string) (io.ReadCloser, error) {
 }
 
 
-func ReadTar(tarfile io.ReadCloser) ([]string){
-    tarReader := tar.NewReader(tarfile)
-
-    var layers []string
-
-    for {
-            tarHeader, err := tarReader.Next()
-            if err == io.EOF {
-                    break
-            }
-
-            if err != nil {
-                    fmt.Println(err)
-                    os.Exit(1)
-            }
-
-            name := tarHeader.Name
-            rep := regexp.MustCompile(`([A-Fa-f0-9]{64})\.json`)
-            if rep.MatchString(name) {
-                    layers = ReadHashJson(tarReader)
-                    break
-            }
-    }
-    return layers
-}
-
 type history struct {
     Created_by string `json: "created_by"`
 }
@@ -93,6 +67,31 @@ func ReadHashJson(tarReader *tar.Reader) ([]string){
 
 }
 
+func ReadTar(tarfile io.ReadCloser) ([]string){
+    tarReader := tar.NewReader(tarfile)
+
+    var layers []string
+
+    for {
+            tarHeader, err := tarReader.Next()
+            if err == io.EOF {
+                    break
+            }
+
+            if err != nil {
+                    fmt.Println(err)
+                    os.Exit(1)
+            }
+
+            name := tarHeader.Name
+            rep := regexp.MustCompile(`([A-Fa-f0-9]{64})\.json`)
+            if rep.MatchString(name) {
+                    layers = ReadHashJson(tarReader)
+                    break
+            }
+    }
+    return layers
+}
 
 func FormatRun(runc string) (string){
     var dline string
