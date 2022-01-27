@@ -1,5 +1,8 @@
-Convert docker container image to Dockerfile
-v0.0.1
+Convert docker container image to Dockerfile<br>
+v0.0.1<br><br>
+
+- local docker coniner image to Dockerfile
+- install docker
 
 usage: img2df [image name] or [image:tag]<br>
 example: img2df debian
