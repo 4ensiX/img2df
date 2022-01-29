@@ -1,8 +1,9 @@
-Convert docker container image to Dockerfile
-v0.1.1
+# img2df ver 0.1.1
+Extract Dockerfile cmd and COPY&ADD files from the Docker container image.
 
-usage: img2df [image name] or [image:tag]<br>
-example: img2df debian
+# usage
+img2df [image name] or [image:tag]<br>
+# example
 ```
 $ ls
 $ sudo ./img2df python
