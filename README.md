@@ -1,6 +1,10 @@
 # img2df ver 0.1.1
 Extract Dockerfile cmd and COPY&ADD files from the Docker container image.
 
+# dependancy
+- install docker
+- run img2df with the same level of permissions as docker<br>sudo docker? -> sudo img2df
+
 # usage
 img2df [image name] or [image:tag]<br>
 # example
