@@ -1,17 +1,19 @@
-Convert docker container image to Dockerfile<br>
-v0.0.1<br><br>
-
-- local docker coniner image to Dockerfile
-- install docker
+Convert docker container image to Dockerfile
+v0.0.2
 
 usage: img2df [image name] or [image:tag]<br>
 example: img2df debian
 ```
-$ sudo ./img2df python:alpine
+$ ls
+$ sudo ./img2df python
+$ ls
+Dockerfile temp
+$ ls temp
+1d63f362c5e879b13b892d0399c38618e126376f645ef7ab9e68e742c5123198.tar
 $ cat Dockerfile
 FROM scratch
 
-ADD file:aad4290d27580cc1a094ffaf98c3ca2fc5d699fe695dfb8e6e9fac20f1129450  /
+ADD temp/1d63f362c5e879b13b892d0399c38618e126376f645ef7ab9e68e742c5123198.tar /
 
 CMD ["/bin/sh"]
 
