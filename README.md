@@ -1,5 +1,5 @@
 Convert docker container image to Dockerfile
-v0.0.2
+v0.1.1
 
 usage: img2df [image name] or [image:tag]<br>
 example: img2df debian
