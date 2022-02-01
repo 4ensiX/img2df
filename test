@@ -1,0 +1,8 @@
+# example
+
+```
+$ sudo go run main.go nginx
+$ ls temp
+
+$ cat Dockerfile
+```
