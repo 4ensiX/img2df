@@ -36,6 +36,7 @@ func SaveImage(id string) (io.ReadCloser, error) {
 }
 
 func SaveAndOpenImageTar(tarfile io.ReadCloser) (io.ReadCloser){
+    var err error
     if err := os.Mkdir(dir, 0755);err != nil {
         fmt.Println(err)
         os.Exit(1)
@@ -50,9 +51,9 @@ func SaveAndOpenImageTar(tarfile io.ReadCloser) (io.ReadCloser){
         os.Exit(1)
     }
     wf.Close()
-    rf, err2 := os.Open(dir + "/tmp.tar")
-    if err2 != nil {
-        fmt.Println(err2)
+    rf, err := os.Open(dir + "/tmp.tar")
+    if err != nil {
+        fmt.Println(err)
         os.Exit(1)
     }
     return rf
@@ -244,12 +245,12 @@ func ExtractFiles(layers []string, cpcmds []string) {
     tarReader := tar.NewReader(tarfile)
 
     for {
-            tarHeader, err2 := tarReader.Next()
-            if err2 == io.EOF {
+            tarHeader, err := tarReader.Next()
+            if err == io.EOF {
                     break
             }
-            if err2 != nil {
-                    fmt.Println(err2)
+            if err != nil {
+                    fmt.Println(err)
                     os.Exit(1)
             }
 
