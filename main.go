@@ -3,7 +3,7 @@ package main
 import (
     "fmt"
     "os"
-    "github.com/4ensiX/img2df/util"
+    "github.com/4ensiX/img2df/img2df"
 )
 
 func main() {
