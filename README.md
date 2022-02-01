@@ -1,4 +1,4 @@
-# img2df ver 0.1.1
+# img2df ver 0.1.2
 Extract Dockerfile cmd and COPY&ADD files from the Docker container image.
 
 # dependancy
