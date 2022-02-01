@@ -3,7 +3,7 @@ package main
 import (
     "fmt"
     "os"
-    "github.com/4ensiX/img2df/util"
+    "github.com/4ensiX/img2df/img2df"
 )
 
 func main() {
@@ -17,16 +17,16 @@ func main() {
         return
     }
     var id string = os.Args[1]
-    reader, err := util.SaveImage(id)
+    reader, err := img2df.SaveImage(id)
     if err != nil {
         fmt.Println(err)
         os.Exit(1)
     }
-    rf := util.SaveAndOpenImageTar(reader)
+    rf := img2df.SaveAndOpenImageTar(reader)
     reader.Close()
-    dfcmd, layers := util.ReadTar(rf)
+    dfcmd, layers := img2df.ReadTar(rf)
     rf.Close()
-    cpcmd, extLayers := util.CheckImageLayer(dfcmd, layers)
-    util.ExtractFiles(extLayers,cpcmd)
-    util.CreateDockerfile(dfcmd,cpcmd,extLayers)
+    cpcmd, extLayers := img2df.CheckImageLayer(dfcmd, layers)
+    img2df.ExtractFiles(extLayers,cpcmd)
+    img2df.CreateDockerfile(dfcmd,cpcmd,extLayers)
 }
